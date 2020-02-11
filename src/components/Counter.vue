@@ -9,6 +9,11 @@
     <MessageArea v-bind:counterVal="cValue" v-on:emit-customtext="updateHeading" />
     <br/><br />
     <h1>{{txtHeading}}</h1>
+    <ul>
+      <li v-for="p in products" v-bind:key="p.name">
+        <span>{{p.name}}</span><span>{{p.price}}</span>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -19,6 +24,11 @@ export default {
   name: "Counter",
   components: {
     MessageArea,
+  },
+  computed: {
+    products() {
+      return this.$store.state.products
+    }
   },
   data() {
     return {
