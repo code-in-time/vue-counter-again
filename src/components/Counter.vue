@@ -14,6 +14,16 @@
         <span>{{p.name}}</span><span>{{p.price}}</span>
       </li>
     </ul>
+    <hr />
+    using state<br />
+    {{message}}
+    <br />
+    <input v-model="message" />
+    <hr />
+    using vuex<br />
+    {{address}}<br />
+    <input v-model="address" />
+
   </div>
 </template>
 
@@ -25,18 +35,29 @@ export default {
   components: {
     MessageArea,
   },
-  computed: {
-    products() {
-      return this.$store.state.products
-    }
-  },
   data() {
     return {
       cValue: 1,
       dVal: 0,
-      txtHeading: 'empty'
+      txtHeading: 'empty',
+      message: 'test',
     };
   },
+  computed: {
+    products() {
+      return this.$store.state.products
+    },
+    address: {
+      get () {
+        return this.$store.state.address
+      },
+      set (value) {
+        this.$store.commit('updateAddress', value)
+      }
+    }
+
+  },
+
   methods: {
     btnClick() {
       // console.log("click ME");
@@ -44,6 +65,10 @@ export default {
     },
     updateHeading(e) {
       this.txtHeading = e
+    },
+    updateAddress (e) {
+      this.$store.commit('updateAddress', e.taget.value)
+      console.log('updateAddress', e.taget.value);
     }
   }
 };

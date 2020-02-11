@@ -27,3 +27,11 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+video tutorial
+-- https://scrimba.com/p/pnyzgAP/cqKRgEC9
+
+-- https://vuex.vuejs.org/guide/forms.html
+
+-- https://www.youtube.com/watch?v=OtLRQdjmFvs&list=PL4cUxeGkcC9i371QO_Rtkl26MwtiJ30P2&index=5
